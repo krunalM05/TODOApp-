@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<div class="jumbotron">
+  <h1 class="text-center">TODO List</h1>
+  <p class="text-center">Your daily Tasks are shown below:</p>
+</div>
+</div>
+<div class="container-sm">
+<div class="row justify-content-center">
+<form method="POST" action="/">
+	<div class="form-group">
+	{{form}}
+	{%csrf_token%}
+	<input type="submit" name="addtask" class="btn-success">
+    </div>
+</form>
+</div>
+</div>
+<div class="container-lg">
+{% for i in tasks%}
+<div class="row justify-content-center">
+<div class="border-info" style="border:1px solid black;width:auto;padding:10px;">
+	<p  style="display: inline-block;">{{i}}</p>
+	<a href="{% url 'update' i.id %}" style="display: inline-block;" class="btn btn-info btn-sm">update</a>
+	<a href="{% url 'delete' i.id %}"  style="display: inline-block;" class="btn btn-danger btn-sm">delete</a>
+</div>
+</div>
+<br>
+{% endfor %}
+</div>
+</body>
+</html>

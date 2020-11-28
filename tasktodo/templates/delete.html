@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container-lg" style="margin-top:15%">
+	<div class="jumbotron">
+	<div class="row justify-content-center">
+	<div>
+	<h1 class="alert-warning">are you want to delete '{{item}}'</h1>
+	</div>
+	</div>
+	<div class="row justify-content-center">
+	<a href="{% url 'task' %}" class="btn btn-sm btn-info">cancel</a>&nbsp&nbsp
+	<form method="POST" action="">
+		{%csrf_token%}
+		<input type="submit" name="confirm" class="btn btn-sm btn-success">
+	
+	</form>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
+
